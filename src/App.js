@@ -2,8 +2,8 @@ import React from 'react';
 import {Link, BrowserRouter as Router, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Vendedor from './components/vendedor'
-import Producto from './components/producto'
+import Vendedor from './components/class-component/Vendedor'
+import Producto from './components/class-component/Producto'
 function App() {
   return (
     <div className="App container-fluid" id = "contenedor_padre">
@@ -28,8 +28,8 @@ function App() {
             </div>
           </nav>
         <div>
-          <Route exact path="/" component={Vendedor} />
-          <Route exact path="/vendedor" component={Vendedor} />
+          <Route exact path="/" component={() => <Vendedor nombre = "oscar mesa" /> }/>
+          <Route exact path="/vendedor" component={() => <Vendedor nombre = "carlos" /> } />
           <Route exact path="/producto" component={Producto} />
         </div>
       </Router>
